@@ -10,6 +10,9 @@
 ## How to Install
 
 open CMD, cd to accelscience folder
+<br/>
 and then run it on XAMPP with mysql server,
+<br/>
 or change the mysql server ip, user, and password on .env file
+<br/>
 type -> php artisan migrate
