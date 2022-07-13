@@ -15,4 +15,8 @@ and then run it on XAMPP with mysql server,
 <br/>
 or change the mysql server ip, user, and password on .env file
 <br/>
+type -> npm start
+<br/>
+type -> node index
+<br/>
 type -> php artisan migrate
