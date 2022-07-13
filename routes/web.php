@@ -23,8 +23,10 @@ Route::name('user.')->group(function (){
     Route::name('private')->group(function (){
         Route::view('/private','private')->name('private')->middleware('auth');
         Route::get('/private', function () {
+            DB::table('chat')->whereRaw('created_at >= now() - interval 2 hour');
             $tables = DB::table('posts')->select('name', 'video', 'document', 'value', 'id', 'valueOf')->get()  ;
-            return view('private', ['tables' => $tables]);
+            $chat = DB::select('select * from chat');
+            return view('private', ['tables' => $tables,'chat' => $chat]);
         })->middleware('auth');
     });
     Route::name('page')->group(function (){

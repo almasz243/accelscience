@@ -15,10 +15,13 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        $schedule->call(function () {
+            DB::table('chat')->delete();
+        })->everyTenMinutes();
         // $schedule->command('inspire')->hourly();
     }
 
-    /**
+    /**php /path-to-your-project/artisan schedule:run >> /dev/null 2>&1
      * Register the commands for the application.
      *
      * @return void
